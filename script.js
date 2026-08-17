@@ -6,6 +6,15 @@ document.addEventListener('DOMContentLoaded', () => {
   initTabNavigation();
   renderVideoBank();
   renderAudioTracker();
+
+  // Jika halaman dibuka langsung dengan hash (mis. index.html#roadmap),
+  // langsung tampilkan halaman yang dituju.
+  const initialTarget = window.location.hash.replace('#', '');
+  if (initialTarget) {
+    const tabs = document.querySelectorAll('.tab');
+    const pages = document.querySelectorAll('.page');
+    goToPage(initialTarget, tabs, pages);
+  }
 });
 
 /* ---------------------------------------------------------
