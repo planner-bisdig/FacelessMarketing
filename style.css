@@ -562,3 +562,36 @@ body{
     height: auto;
   }
 }
+
+@media print {
+    /* Menghilangkan margin bawaan kertas printer */
+    @page {
+        size: landscape;
+        margin: 0;
+    }
+    
+    body {
+        background-color: #ffffff;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Memaksa setiap halaman planner pecah menjadi halaman PDF baru secara presisi */
+    .planner-container {
+        page-break-after: always;
+        break-after: page;
+        
+        /* Memastikan ukuran pas dan tidak meluber ke halaman lain */
+        width: 100vw !important;
+        height: 100vh !important;
+        box-shadow: none !important;
+        margin: 0 !important;
+    }
+
+    /* Memastikan grafis latar belakang warna pastel dan binder wajib ikut tercetak */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+}
+
