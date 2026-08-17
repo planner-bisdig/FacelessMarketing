@@ -595,3 +595,35 @@ body{
     }
 }
 
+@media print {
+    /* 1. Sembunyikan tombol download agar tidak ikut tercetak di lembar PDF */
+    #download-btn {
+        display: none !important;
+    }
+
+    /* 2. Paksa semua section halaman yang disembunyikan oleh JS untuk MUNBUL SEMUA */
+    section, .page, .planner-container, div[id$="-page"] {
+        display: flex !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        
+        /* Paksa potong halaman secara presisi per halaman binder */
+        page-break-after: always !important;
+        break-after: page !important;
+        
+        /* Mengunci proporsi layar agar pas dengan kertas */
+        width: 100vw !important;
+        height: 100vh !important;
+    }
+
+    /* 3. Atur format cetakan otomatis ke bentuk Landscape tanpa margin */
+    @page {
+        size: landscape;
+        margin: 0;
+    }
+
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+}
