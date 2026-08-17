@@ -112,21 +112,9 @@ function renderAudioTracker () {
   `).join('');
 }
 
+// Memastikan tombol cetak merespons dengan memanggil print dialog browser secara bersih
 document.getElementById('download-btn').addEventListener('click', () => {
-    // Mengambil elemen pembungkus utama planner Anda
-    const element = document.body; 
-
-    // Konfigurasi khusus agar seluruh tautan/hyperlink terkunci ke dalam file PDF
-    const options = {
-        margin:       0,
-        filename:     'Faceless_Marketing_Planner_Interactive.pdf',
-        image:        { type: 'jpeg', quality: 0.98 },
-        html2canvas:  { scale: 2, useCORS: true, logging: false },
-        jsPDF:        { unit: 'in', format: 'a4', orientation: 'landscape' },
-        pagebreak:    { mode: ['avoid-all', 'css'] } // Mengikuti rule CSS page-break
-    };
-
-    // Jalankan perintah konversi pintar
-    html2pdf().set(options).from(element).save();
+    // Jalankan perintah cetak otomatis browser
+    window.print();
 });
 
