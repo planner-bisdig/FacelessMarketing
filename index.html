@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Content Creator Faceless Marketing Planner</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="binder" id="binder">
+
+  <!-- ===================== METALLIC RING SPINE ===================== -->
+  <div class="spine" aria-hidden="true">
+    <div class="spine-shadow-left"></div>
+    <div class="spine-shadow-right"></div>
+    <div class="ring ring--1"></div>
+    <div class="ring ring--2"></div>
+    <div class="ring ring--3"></div>
+    <div class="ring ring--4"></div>
+    <div class="ring ring--5"></div>
+    <div class="ring ring--6"></div>
+  </div>
+
+  <!-- ===================== PAGE STAGE ===================== -->
+  <div class="pages">
+
+    <!-- PAGE 1 — COVER / DASHBOARD -->
+    <section class="page active" id="home">
+      <div class="page-inner cover">
+        <div class="cover-icon" aria-hidden="true">
+          <svg width="86" height="86" viewBox="0 0 86 86" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="22" width="74" height="50" rx="10" fill="#F4EDE2" stroke="#D4A373" stroke-width="2.5"/>
+            <path d="M28 22L34 12H52L58 22" stroke="#D4A373" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <circle cx="43" cy="47" r="16" fill="#FFFDF9" stroke="#A3B19B" stroke-width="2.5"/>
+            <circle cx="43" cy="47" r="8" fill="none" stroke="#D4A373" stroke-width="2.5"/>
+            <circle cx="66" cy="32" r="3" fill="#A3B19B"/>
+          </svg>
+        </div>
+
+        <p class="eyebrow">Faceless Marketing Planner</p>
+        <h1 class="cover-title">Content Creator<br>Faceless Marketing Planner</h1>
+        <p class="cover-subtitle">Premium Edition 2026</p>
+
+        <div class="cover-divider"></div>
+
+        <div class="tutorial-card">
+          <h2>How this binder works</h2>
+          <ul class="tutorial-list">
+            <li>
+              <span class="tut-num">01</span>
+              <div>
+                <strong>Video Bank</strong>
+                <p>Log every piece of b‑roll footage, tag its category, and track status from idea to published.</p>
+              </div>
+            </li>
+            <li>
+              <span class="tut-num">02</span>
+              <div>
+                <strong>Audio &amp; Hook</strong>
+                <p>Pair trending sounds with proven hook formulas so every video opens with intent.</p>
+              </div>
+            </li>
+            <li>
+              <span class="tut-num">03</span>
+              <div>
+                <strong>Roadmap</strong>
+                <p>Follow the 4‑week checklist canvas to launch your digital product without missing a beat.</p>
+              </div>
+            </li>
+          </ul>
+          <p class="tutorial-tip">Tip — tap the tabs on the right edge to flip between pages. Everything autosaves to nothing; this binder is for planning, not permanence. ✎</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 2 — VIDEO BANK -->
+    <section class="page" id="video-bank">
+      <div class="page-inner">
+        <header class="page-header">
+          <p class="eyebrow">Page Two</p>
+          <h1>Aesthetic B‑Roll Video Bank</h1>
+          <p class="page-sub">Every scene you shoot, catalogued and ready to cut.</p>
+        </header>
+
+        <div class="tracker-head video-grid-cols">
+          <span>No.</span>
+          <span>Footage Title / Scene</span>
+          <span>Category</span>
+          <span>Status</span>
+        </div>
+
+        <div class="tracker-list" id="video-bank-list"><!-- rows injected by script.js --></div>
+      </div>
+    </section>
+
+    <!-- PAGE 3 — AUDIO & HOOK TRACKER -->
+    <section class="page" id="audio-hook">
+      <div class="page-inner">
+        <header class="page-header">
+          <p class="eyebrow">Page Three</p>
+          <h1>Audio &amp; Hook Tracker</h1>
+          <p class="page-sub">Trending sound meets scroll‑stopping first line.</p>
+        </header>
+
+        <div class="audio-layout">
+
+          <!-- LEFT: Hook formulas -->
+          <aside class="hook-formulas">
+            <h2>Viral Hook Formulas</h2>
+
+            <div class="formula-card">
+              <span class="formula-tag">Curiosity Gap</span>
+              <p>"Nobody tells you this about ___ until it's too late."</p>
+            </div>
+            <div class="formula-card">
+              <span class="formula-tag">Bold Claim</span>
+              <p>"I stopped doing ___ and my results doubled."</p>
+            </div>
+            <div class="formula-card">
+              <span class="formula-tag">Relatable Pain</span>
+              <p>"If you're tired of ___, watch this to the end."</p>
+            </div>
+            <div class="formula-card">
+              <span class="formula-tag">Direct Callout</span>
+              <p>"This is for every ___ who feels stuck right now."</p>
+            </div>
+            <div class="formula-card">
+              <span class="formula-tag">Countdown</span>
+              <p>"3 things I wish I knew before starting ___."</p>
+            </div>
+            <div class="formula-card">
+              <span class="formula-tag">Contrarian</span>
+              <p>"Everyone says do ___. Here's why that's wrong."</p>
+            </div>
+          </aside>
+
+          <!-- RIGHT: audio tracker table -->
+          <div class="audio-tracker">
+            <div class="tracker-head audio-grid-cols">
+              <span>Trending Audio</span>
+              <span>Hook Idea</span>
+              <span>Trend</span>
+            </div>
+            <div class="tracker-list" id="audio-tracker-list"><!-- rows injected by script.js --></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 4 — DIGITAL PRODUCT LAUNCH ROADMAP -->
+    <section class="page" id="roadmap">
+      <div class="page-inner">
+        <header class="page-header">
+          <p class="eyebrow">Page Four</p>
+          <h1>Digital Product Launch Roadmap</h1>
+          <p class="page-sub">A four‑week canvas from idea to income.</p>
+        </header>
+
+        <div class="roadmap-grid">
+
+          <div class="week-card">
+            <div class="week-tag">Week 01</div>
+            <h3>Foundation</h3>
+            <label class="checkline"><input type="checkbox"><span class="box"></span>Validate the product idea with your audience</label>
+            <label class="checkline"><input type="checkbox"><span class="box"></span>Outline the core offer &amp; deliverables</label>
+            <label class="checkline"><input type="checkbox"><span class="box"></span>Choose pricing &amp; positioning</label>
+            <label class="checkline"><input type="checkbox"><span class="box"></span>Set launch date on calendar</label>
+          </div>
+
+          <div class="week-card">
+            <div class="week-tag">Week 02</div>
+            <h3>Creation</h3>
+            <label class="checkline"><input type="checkbox"><span class="box"></span>Build the product / record modules</label>
+            <label class="checkline"><input type="checkbox"><span class="box"></span>Design cover art &amp; sales page</label>
+            <label class="checkline"><input type="checkbox"><span class="box"></span>Draft email nurture sequence</label>
+            <label class="checkline"><input type="checkbox"><span class="box"></span>Prep faceless promo b‑roll bank</label>
+          </div>
+
+          <div class="week-card">
+            <div class="week-tag">Week 03</div>
+            <h3>Warm‑Up</h3>
+            <label class="checkline"><input type="checkbox"><span class="box"></span>Post 3 value‑first hook videos</label>
+            <label class="checkline"><input type="checkbox"><span class="box"></span>Tease the product in stories</label>
+            <label class="checkline"><input type="checkbox"><span class="box"></span>Open waitlist / early‑bird list</label>
+            <label class="checkline"><input type="checkbox"><span class="box"></span>Line up trending audio for launch</label>
+          </div>
+
+          <div class="week-card">
+            <div class="week-tag">Week 04</div>
+            <h3>Launch</h3>
+            <label class="checkline"><input type="checkbox"><span class="box"></span>Publish launch day announcement</label>
+            <label class="checkline"><input type="checkbox"><span class="box"></span>Send cart‑open email &amp; DMs</label>
+            <label class="checkline"><input type="checkbox"><span class="box"></span>Post daily proof / testimonials</label>
+            <label class="checkline"><input type="checkbox"><span class="box"></span>Close cart &amp; review results</label>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /.pages -->
+
+  <!-- ===================== RIGHT EDGE NAVIGATION TABS ===================== -->
+  <nav class="tabs" aria-label="Planner sections">
+    <a href="#home" class="tab tab--home active" data-target="home">HOME</a>
+    <a href="#video-bank" class="tab tab--video" data-target="video-bank">VIDEO BANK</a>
+    <a href="#audio-hook" class="tab tab--audio" data-target="audio-hook">AUDIO &amp; HOOK</a>
+    <a href="#roadmap" class="tab tab--roadmap" data-target="roadmap">ROADMAP</a>
+  </nav>
+
+</div><!-- /.binder -->
+
+<script src="script.js"></script>
+</body>
+</html>
