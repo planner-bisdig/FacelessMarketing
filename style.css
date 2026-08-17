@@ -236,13 +236,24 @@ body{
 }
 .tutorial-list{ list-style:none; }
 .tutorial-list li{
-  display:flex;
-  gap: 14px;
-  align-items:flex-start;
-  padding: 10px 0;
   border-bottom: 1px dashed var(--grid-line);
 }
 .tutorial-list li:last-child{ border-bottom:none; }
+.tut-link{
+  display:flex;
+  gap: 14px;
+  align-items:flex-start;
+  padding: 10px 4px;
+  border-radius: 10px;
+  text-decoration:none;
+  color:inherit;
+  cursor:pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+.tut-link:hover{
+  background: var(--bg-beige);
+  transform: translateX(2px);
+}
 .tut-num{
   font-family: var(--font-serif);
   font-weight:700;
@@ -541,6 +552,31 @@ body{
 .tab--roadmap.active{ background: var(--accent-sage-dark); color:#fff; }
 
 /* =========================================================
+   EXPORT / DOWNLOAD BUTTON
+   ========================================================= */
+#download-btn{
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 9999;
+  padding: 10px 20px;
+  background: var(--accent-terra);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 13px;
+  box-shadow: 0 8px 18px -8px rgba(74,63,53,0.45);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+#download-btn:hover{
+  background: var(--accent-terra-dark);
+  transform: translateY(-1px);
+}
+
+/* =========================================================
    SCROLLBAR (webkit)
    ========================================================= */
 .page::-webkit-scrollbar{ width: 6px; }
@@ -549,81 +585,90 @@ body{
 
 /* =========================================================
    PRINT (interactive PDF export)
+   Setiap .page dicetak sebagai satu halaman PDF penuh, dan
+   tab navigasi tetap tampil + tetap berupa <a href="#id">
+   di setiap halaman sehingga hyperlink internal PDF-nya
+   tetap bisa diklik saat dibuka di PDF reader.
    ========================================================= */
 @media print{
-  body{ background:none; padding:0; }
-  .binder{ box-shadow:none; }
-  .tabs{ display:none; }
+  @page{
+    size: landscape;
+    margin: 0;
+  }
+
+  html, body{
+    background:#fff;
+    margin:0;
+    padding:0;
+    display:block;
+    height:auto;
+  }
+
+  /* Sembunyikan tombol export saat cetak/PDF */
+  #download-btn{ display:none !important; }
+
+  /* Binder tidak lagi dibatasi 1024x768 + overflow:hidden,
+     supaya semua halaman ikut tercetak dan tidak terpotong */
+  .binder{
+    position: static;
+    display:block;
+    width: 100%;
+    height: auto;
+    max-width:none;
+    box-shadow:none;
+    border-radius:0;
+    overflow: visible;
+  }
+
+  .spine{ display:none; }
+
+  .pages{
+    position: static;
+    height:auto;
+  }
+
   .page{
     position: relative;
-    opacity:1;
-    visibility:visible;
+    display:block !important;
+    opacity:1 !important;
+    visibility:visible !important;
+    overflow: visible;
+    width: 100vw;
+    min-height: 100vh;
     page-break-after: always;
-    height: auto;
+    break-after: page;
+    page-break-inside: avoid;
   }
-}
+  .page:last-child{
+    page-break-after: auto;
+    break-after: auto;
+  }
 
-@media print {
-    /* Menghilangkan margin bawaan kertas printer */
-    @page {
-        size: landscape;
-        margin: 0;
-    }
-    
-    body {
-        background-color: #ffffff;
-        margin: 0;
-        padding: 0;
-    }
+  .page-inner{ padding: 32px 40px; }
 
-    /* Memaksa setiap halaman planner pecah menjadi halaman PDF baru secara presisi */
-    .planner-container {
-        page-break-after: always;
-        break-after: page;
-        
-        /* Memastikan ukuran pas dan tidak meluber ke halaman lain */
-        width: 100vw !important;
-        height: 100vh !important;
-        box-shadow: none !important;
-        margin: 0 !important;
-    }
+  /* Tab navigasi dicetak mendatar di bagian bawah tiap halaman,
+     tetap sebagai <a href="#..."> asli sehingga tetap jadi
+     link internal yang bisa diklik di dalam PDF */
+  .tabs{
+    position: relative;
+    top:auto; right:auto;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 24px;
+    page-break-inside: avoid;
+  }
+  .tab{
+    writing-mode: horizontal-tb;
+    transform:none;
+    border-radius: 8px;
+    padding: 8px 16px;
+  }
+  .tab:hover{ transform:none; }
 
-    /* Memastikan grafis latar belakang warna pastel dan binder wajib ikut tercetak */
-    * {
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-    }
-}
-
-@media print {
-    /* 1. Sembunyikan tombol download agar tidak ikut tercetak di lembar PDF */
-    #download-btn {
-        display: none !important;
-    }
-
-    /* 2. Paksa semua section halaman yang disembunyikan oleh JS untuk MUNBUL SEMUA */
-    section, .page, .planner-container, div[id$="-page"] {
-        display: flex !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-        
-        /* Paksa potong halaman secara presisi per halaman binder */
-        page-break-after: always !important;
-        break-after: page !important;
-        
-        /* Mengunci proporsi layar agar pas dengan kertas */
-        width: 100vw !important;
-        height: 100vh !important;
-    }
-
-    /* 3. Atur format cetakan otomatis ke bentuk Landscape tanpa margin */
-    @page {
-        size: landscape;
-        margin: 0;
-    }
-
-    * {
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-    }
+  /* Pastikan warna latar & aksen ikut tercetak */
+  *{
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
 }
