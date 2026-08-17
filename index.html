@@ -10,8 +10,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
-  <!-- Masukkan ini di dalam tag <head> -->
-<script src="https://cloudflare.com"></script>
 </head>
 <body>
 
@@ -55,25 +53,31 @@
           <h2>How this binder works</h2>
           <ul class="tutorial-list">
             <li>
-              <span class="tut-num">01</span>
-              <div>
-                <strong>Video Bank</strong>
-                <p>Log every piece of b‑roll footage, tag its category, and track status from idea to published.</p>
-              </div>
+              <a class="tut-link" href="#video-bank" data-target="video-bank">
+                <span class="tut-num">01</span>
+                <div>
+                  <strong>Video Bank</strong>
+                  <p>Log every piece of b‑roll footage, tag its category, and track status from idea to published.</p>
+                </div>
+              </a>
             </li>
             <li>
-              <span class="tut-num">02</span>
-              <div>
-                <strong>Audio &amp; Hook</strong>
-                <p>Pair trending sounds with proven hook formulas so every video opens with intent.</p>
-              </div>
+              <a class="tut-link" href="#audio-hook" data-target="audio-hook">
+                <span class="tut-num">02</span>
+                <div>
+                  <strong>Audio &amp; Hook</strong>
+                  <p>Pair trending sounds with proven hook formulas so every video opens with intent.</p>
+                </div>
+              </a>
             </li>
             <li>
-              <span class="tut-num">03</span>
-              <div>
-                <strong>Roadmap</strong>
-                <p>Follow the 4‑week checklist canvas to launch your digital product without missing a beat.</p>
-              </div>
+              <a class="tut-link" href="#roadmap" data-target="roadmap">
+                <span class="tut-num">03</span>
+                <div>
+                  <strong>Roadmap</strong>
+                  <p>Follow the 4‑week checklist canvas to launch your digital product without missing a beat.</p>
+                </div>
+              </a>
             </li>
           </ul>
           <p class="tutorial-tip">Tip — tap the tabs on the right edge to flip between pages. Everything autosaves to nothing; this binder is for planning, not permanence. ✎</p>
@@ -219,10 +223,9 @@
 
 </div><!-- /.binder -->
 
+<!-- Tombol Unduh PDF -->
+<button id="download-btn" type="button">🚀 EXPORT TO INTERACTIVE PDF</button>
+
 <script src="script.js"></script>
 </body>
-  <!-- Tombol Unduh PDF Otomatis -->
-<button id="download-btn" style="position: fixed; bottom: 20px; left: 20px; z-index: 9999; padding: 10px 20px; background: #D4A373; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
-   🚀 EXPORT TO INTERACTIVE PDF
-</button>
 </html>
